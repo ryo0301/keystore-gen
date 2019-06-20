@@ -1,0 +1,11 @@
+{
+  "name": "keystore-gen",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ryo0301/keystore-gen.git",
+  "author": "ryo0301@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "web3": "^1.0.0-beta.55"
+  }
+}
