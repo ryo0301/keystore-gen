@@ -8,14 +8,13 @@ arg = process.argv[3]
 const p = typeof arg === 'string' ? arg : ''
 
 const web3 = new Web3()
-const index = web3.eth.accounts.wallet.create(n).accountsIndex
 
-for (let i=0; i<index; i++) {
-  const account = web3.eth.accounts.wallet.get(i)
-  const keystore = account.toV3Keystore(p)
-  const filename = `${keystore.id}.json`
+for (let i = 0; i < n; i++) {
+  const account = web3.eth.accounts.create()
+  const keystore = [account.encrypt(p)]
+  const filename = `${keystore[0].id}.json`
   try {
-    fs.writeFileSync(filename, JSON.stringify([keystore]))
+    fs.writeFileSync(filename, JSON.stringify(keystore))
     console.log(filename)
   } catch(e) {
     console.error(e)
